@@ -1,7 +1,0 @@
-使用 JPA 和 EasyExcel 并加入参数校验以及监听器实现 Excel 报表导入导出MySQL数据库
-1、创建 SpringBoot 项目，导入依赖：easyexcel、mysql-connector-java、spring-boot-starter-data-jpa
-2、创建 application.yaml 文件，配置数据库连接，MySQL 和 JPA 的配置
-3、创建实体类，@Entity，用于映射数据库表和 Excel 数据，实体类的属性应该与数据库表的列对应
-4、创建数据访问层（Repository），继承 JpaRepository<>，用于对数据库表进行 CRUD 操作
-5、创建 Excel 数据监听器 AnalysisEventListener（默认监听器），添加参数校验
-6、编写 controller 接口，实现导入导出功能
