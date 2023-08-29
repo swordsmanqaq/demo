@@ -1,0 +1,18 @@
+快速搭建一个 Spring Security 安全 web 服务
+1、创建 SpringBoot项目，导入依赖：spring-boot-starter-security
+2、创建 Application.yaml 文件，做好相对应的配置
+3、编写前端登陆界面， security 会有个默认的登陆页面、 index.html
+
+思路分析：
+1、登陆
+    a.自定义登陆接口
+        调用 ProviderManager 的方法进行认证，如果认证通过，根据用户id生成 jwt，把用户信息存到redis
+    b.自定义UserDetailsService
+        在这个实现类中查询数据库相关信息
+
+2、校验：
+    a.定义 jwt 认证过滤器
+        获取token
+        解析token获取其中的用户id
+        从redis中获取用户相关信息
+        封装 Authentication 对象存入到SecurityContextHolder

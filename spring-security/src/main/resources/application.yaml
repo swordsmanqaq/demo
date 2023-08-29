@@ -1,0 +1,16 @@
+server:
+  port: 40002
+
+logging:
+  level:
+    root: info
+    #    org.springframework.security.web: debug
+    org.springframework.security.web.FilterChainProxy: debug #过滤器执行顺序
+    org.springframework.security.web.access.expression.ExpressionBasedFilterInvocationSecurityMetadataSource: info #权限配置
+    org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource: info #权限配置
+    org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration: debug
+spring:
+  security:
+    user:
+      name: lph
+      password: 123456

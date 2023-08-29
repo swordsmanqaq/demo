@@ -20,12 +20,22 @@ import java.util.Random;
 public class VerifyCodeUtils {
     // 使用到Algerian字体，系统里没有的话需要安装字体，字体只显示大写，去掉了1,0,i,o几个容易混淆的字符
     public static final String VERIFY_CODES = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+
+    public static final String NUMBER_CODES = "1234567890";
+
     private static Random random = new Random();
 
+    /**
+     * 获取随机数字字符串
+     * @param verifySize
+     * @return
+     */
+    public static String getRandomNumber(int verifySize){
+        return generateVerifyCode(verifySize, NUMBER_CODES);
+    }
 
     /**
-     * 使用系统默认字符源生成验证码
-     *
+     * 获取随机字符串
      * @param verifySize 验证码长度
      * @return
      */
@@ -34,7 +44,7 @@ public class VerifyCodeUtils {
     }
 
     /**
-     * 使用指定源生成验证码
+     * 使用指定源生成字符串
      *
      * @param verifySize 验证码长度
      * @param sources    验证码字符源
@@ -119,6 +129,12 @@ public class VerifyCodeUtils {
         ImageIO.write(image, "jpg", os);
     }
 
+    /**
+     * 获取随机颜色
+     * @param fc
+     * @param bc
+     * @return
+     */
     private static Color getRandColor(int fc, int bc) {
         if (fc > 255)
             fc = 255;
@@ -130,6 +146,10 @@ public class VerifyCodeUtils {
         return new Color(r, g, b);
     }
 
+    /**
+     * 获取随机颜色
+     * @return
+     */
     private static int getRandomIntColor() {
         int[] rgb = getRandomRgb();
         int color = 0;
